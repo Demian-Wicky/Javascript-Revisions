@@ -6279,7 +6279,6 @@ console.log("Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'agen
 function fiver(){
     let usersCopy = [...users] //https://geeklecode.com/loperateur-spread-en-javascript-va-vous-simplifier-la-vie/ #Le spread operator pour copier un array
     function compare(a, b) {
-        // Use toUpperCase() to ignore character casing
         const userA = a.revenue;
         const userB = b.revenue;
 
