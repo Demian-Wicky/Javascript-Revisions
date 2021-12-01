@@ -37,4 +37,33 @@ function untouchedBookDetector(booksList){
 let answer2 = untouchedBookDetector(books)
 console.log(answer2)
 
+// Quel est le livre le plus emprunté ?
+function mostRentedBook(bookList){
+    let mostRentedBook = bookList[0]
+    bookList.forEach(book => {
+        if (book.rented > mostRentedBook.rented){
+            mostRentedBook = book 
+        }
+    })
+    return mostRentedBook
+}
+let answer3 = mostRentedBook(books)
+console.log(answer3)
 
+// Quel est le livre le moins emprunté ?
+function leastRentedBook(bookList){
+    let leastRentedBook = bookList[0]
+    bookList.forEach(book => {
+        if (book.rented < leastRentedBook.rented){
+            leastRentedBook = book 
+        }
+    })
+    return leastRentedBook
+}
+let answer4 = leastRentedBook(books)
+console.log(answer4)
+
+// Supprime le livre avec l'ID 133712
+books.pop(book => book.id == 133712)
+
+console.log(books)
