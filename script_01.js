@@ -42,3 +42,13 @@ let newEntrepreneursArray = entrepreneurs.map(entrepreneur => {
     };
 });
 console.log(newEntrepreneursArray)
+
+// Filtre dans cette liste les entrepreneurs qui sont nés dans les années 70
+let answer = []
+entrepreneurs.forEach(entrepreneur => {
+    if (entrepreneur.year >= 1970 && entrepreneur.year < 1980){
+        answer.push(entrepreneur)
+    }
+
+});
+console.log(answer)
