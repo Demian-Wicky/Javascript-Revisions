@@ -6267,9 +6267,14 @@ console.log("Liste de tous les pays dans lesquels nous avons gagné de l'argent 
 
 let moneyMakerCountries = []
 users.forEach(user =>{
-    if (moneyMakerCountries.includes(user.country) == false){
+    if (moneyMakerCountries.includes(user.country) == false && user.revenue > 0){
         moneyMakerCountries.push(user.country)
     }
 })
 
 console.log(moneyMakerCountries)
+
+// Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'agent ?
+// Gagnons-nous plus d'argent auprès des hommes ou des femmes ?
+// Sors-moi les utilisateurs ayant rapporté au moins 75€
+// Parmi nos 100 premiers utilisateurs, quel est le pourcentage qui sont des clients payants ?
