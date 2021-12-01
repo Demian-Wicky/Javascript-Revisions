@@ -6275,6 +6275,74 @@ users.forEach(user =>{
 console.log(moneyMakerCountries.sort())
 
 // Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'agent ?
-// Gagnons-nous plus d'argent auprès des hommes ou des femmes ?
+console.log("Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'agent ?")
+function fiver(){
+    let usersCopy = [...users] //https://geeklecode.com/loperateur-spread-en-javascript-va-vous-simplifier-la-vie/ #Le spread operator pour copier un array
+    function compare(a, b) {
+        // Use toUpperCase() to ignore character casing
+        const userA = a.revenue;
+        const userB = b.revenue;
+
+        let comparison = 0;
+        if (userA > userB) {
+            comparison = 1;
+        } else if (userA < userB) {
+            comparison = -1;
+        }
+        return comparison * -1; 
+    }
+    return  usersCopy.sort(compare).slice(0, 5);
+}
+console.log(fiver())
+
+//Gagnons-nous plus d'argent auprès des hommes ou des femmes ?
+console.log("Gagnons-nous plus d'argent auprès des hommes ou des femmes ?")
+function compareMaleAndFemaleRevenue(){
+    let maleRevenue = 0
+    let femaleRevenue = 0
+    users.forEach(user => {
+        if (user.sex == "F"){
+            femaleRevenue+= user.revenue
+        }
+        else if (user.sex == "M"){
+            maleRevenue+= user.revenue
+        }
+    })   
+    if (maleRevenue > femaleRevenue){
+        return "Les hommes rapportent plus d'argent que les femmes"
+    }
+    else {
+        return "Les femmes rapportent plus d'argent que les hommes"
+    }
+}
+console.log(compareMaleAndFemaleRevenue())
+
 // Sors-moi les utilisateurs ayant rapporté au moins 75€
+console.log("Sors-moi les utilisateurs ayant rapporté au moins 75€")
+function moneyMakerUsersAmount(amount){
+    let output = []
+    users.forEach(user =>{
+        if (user.revenue >= amount){
+            output.push(user)
+        }
+    })
+    return output
+}
+console.log(moneyMakerUsersAmount(75))
+
 // Parmi nos 100 premiers utilisateurs, quel est le pourcentage qui sont des clients payants ?
+console.log("Parmi nos 100 premiers utilisateurs, quel est le pourcentage qui sont des clients payants ?")
+function hundredUsersPercent(){
+    let numberOfMoneyMakerUsers = 0
+    let hundredFirstUsers = users.slice(0, 100)
+
+    hundredFirstUsers.forEach(user =>{
+        if (user.revenue > 0){
+            numberOfMoneyMakerUsers+=1
+        }
+    })
+
+    return (numberOfMoneyMakerUsers + " %")
+}
+
+console.log(hundredUsersPercent())
