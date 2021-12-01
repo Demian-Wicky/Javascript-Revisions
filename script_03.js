@@ -6243,25 +6243,33 @@ users.forEach(user => {
 console.log(franceUsers)
 
 // Donne-moi le chiffre d'affaires réparti dans nos 4 pays les plus représentés (Allemagne, États-Unis, France, Grande-Bretagne) (chiffre d'affaires total, en France, aux États-Unis, etc.)
-console.log("Le chiffre d'affaires réparti dans nos 4 pays les plus représentés")
+console.log("Le chiffre d'affaires réparti dans une liste de pays :")
 
-let countries = ["France", "Germany", "Great Britain", "United States"]
+function revenueRepartition(countriesList){
+    let output = []
+    countriesList.forEach(country => {
+        output.push({country: country, totalUsers: 0, revenue: 0})
+    })
+    users.forEach(user => {
+        if (countriesList.includes(user.country)){
+            let index = output.findIndex((v => v.country === user.country))
+            output[index].revenue += user.revenue
+            output[index].totalUsers += 1
+        }
+    })
+    return output
+}
 
-let output = []
-countries.forEach(country => {
-    output.push({country: country, totalUsers: 0, revenue: 0})
-})
+console.log(revenueRepartition(["France", "Germany", "Great Britain", "United States", "Hong Kong"]))
 
-users.forEach(user => {
-    if (countries.includes(user.country)){
-        let index = output.findIndex((v => v.country === user.country))
-        output[index].revenue += user.revenue
-        output[index].totalUsers += 1
+// Fais-moi la liste de tous les pays dans lesquels nous avons gagné de l'argent ?
+console.log("Liste de tous les pays dans lesquels nous avons gagné de l'argent :")
+
+let moneyMakerCountries = []
+users.forEach(user =>{
+    if (moneyMakerCountries.includes(user.country) == false){
+        moneyMakerCountries.push(user.country)
     }
 })
 
-console.log(output)
-
-// function revenueRepartition(countriesList){
-
-// }
+console.log(moneyMakerCountries)
