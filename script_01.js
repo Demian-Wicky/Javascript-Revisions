@@ -34,3 +34,11 @@ entrepreneurs.forEach(entrepreneur =>
 console.log(arrayNew)
 
 // Les clés first et last manquent de lisibilité, remplace-les par firstName et lastName
+let newEntrepreneursArray = entrepreneurs.map(entrepreneur => {
+    return {
+        firstName: entrepreneur.first,
+        lastName: entrepreneur.last,
+        year: entrepreneur.year
+    };
+});
+console.log(newEntrepreneursArray)
