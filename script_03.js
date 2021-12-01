@@ -6272,7 +6272,7 @@ users.forEach(user =>{
     }
 })
 
-console.log(moneyMakerCountries)
+console.log(moneyMakerCountries.sort())
 
 // Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'agent ?
 // Gagnons-nous plus d'argent auprès des hommes ou des femmes ?
